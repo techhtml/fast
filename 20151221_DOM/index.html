@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+</head>
+<body>
+    <div class="menu"></div>
+    <button type="button" class="btn btn-menu">메뉴</button>
+    <script>
+        // 모든 DOM은 기본적으로 script와 함께 사용한다.
+        var menu = document.querySelector(".menu");
+        // IE 9부터 지원해요. 모바일은 전체 지원
+        // jQuery는 개발자가 편하기 위해 사용하는 거
+        // console.log(menu);
+        console.log(menu.tagName); // div
+        console.log(menu.id); // undefined || "" || null
+        console.log(menu.className); // menu
+        console.log(menu.getAttribute("class")); // menu
+        console.log(menu.setAttribute("id", "menu")); // <div id="menu" class="menu"></div>
+        console.log(menu.hasAttribute("id")); // true (속성이 있으면)
+        console.log(menu.hasAttribute("contenteditable")); // false (속성이 없으면)
+        console.log(menu.removeAttribute("id")); // id 속성을 지워줌
+        console.log(menu.getElementsByTagName("p")); // undefined (현재 예제 코드상으로는.)
+        console.log(menu.getElementsByTagName("p")); // 만약 P가 4개 있는 상태라면, HTMLCollection ["p", "p", "p", "p"]
+        /*
+        tagName
+        id
+        className
+        getAttribute()
+        setAttribute()
+        removeAttribute()
+        hasAttribute()
+        getElementsByTagName()
+        */
+        // 연습
+        /*
+         * 1. menu를 가져와보세요 (document.querySelector);
+         * 2. menu 요소의 id 속성을 가져와보세요 (getAttribute)
+         * 3. menu 요소의 id 속성에 값을 "menu"라고 넣어보세요. (setAttribute)
+         * 4. menu 요소에 id 속성이 있는지 확인해보세요 (hasAttribute)
+         * 5. menu 요소에서 class 속성을 지워주세요. (removeAttribute)
+         */
+    </script>
+</body>
+</html>
