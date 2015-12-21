@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>예제 3</title>
+    <style>
+        header {height:300px;background:green}
+        main {height:500px;background:red}
+        aside {height:500px;background:green}
+    </style>
+</head>
+<body>
+    <header>
+        <button type="button">메뉴 보이기</button>
+    </header>
+    <main></main>
+    <aside class="menu">
+
+    </aside>
+    <footer></footer>
+    <script>
+        var btn = document.querySelector("button");
+        btn.addEventListener("click", function(e) {
+            /*
+             * 이벤트 그룹화
+             * 마우스, 키보드, 터치스크린, 스타일러스 펜
+             * 마우스
+             * mousedown
+             * mousemove
+             * mouseup
+             * 키보드
+             * keydown
+             * keypress
+             * keyup
+             * 키코드가 있어서, http://firejune.com/731/event.keyCode+%EB%B2%88%ED%98%B8%ED%91%9C
+             * 파이어폭스 charcode, 크롬 keycode
+             * 터치
+             * touchstart
+             * touchmove
+             * touchend
+             * 휠(스크롤
+             * wheel
+             */
+        });
+        /*
+        window.addEventListener("keypress", function(e) {
+            console.log(e.keyCode);
+        })
+        */
+        /*
+        window.addEventListener("wheel", function(e) {
+            var aside = document.querySelector("aside");
+            /* console.log(aside.offsetTop); */
+            /* 브라우저 사이즈 + 상단 스크롤 높이 > 타겟의 상단 스크롤 높이 */
+            /* window.innerHeight + e.pageY > aside.offsetTop */
+        /* }) */
+        /** 과제
+         * 1. menu 버튼에 click 이벤트를 넣어보십시오.
+         *    (힌트 : querySelector, addEventListener)
+         * 2. menu 버튼을 클릭했을 때, aside에 class on을 넣어보세요.
+         *    (힌트 : querySelector, setAttribute)
+         * 3. CSS를 이용해서, aside가 좌측에서 나오는 모션을 구현해보세요.
+         *    (힌트 : .on일때 CSS를 따로 줘서, 나오도록 할 거 같아요)
+         */
+    </script>
+</body>
+</html>

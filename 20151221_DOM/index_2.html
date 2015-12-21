@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <section></section>
+        <section></section>
+        <footer></footer>
+    </main>
+    <footer></footer>
+    <script>
+        var main = document.querySelector("main");
+        console.log(main.nodeName); // main
+        console.log(main.firstChild); // ""
+        console.log(main.lastChild); // ""
+        console.log(main.firstElementChild); // section
+        console.log(main.lastElementChild); // footer
+        console.log(main.previousSibling); // ""
+        console.log(main.nextSibling); // ""
+        console.log(main.previousElementSibling); // header
+        console.log(main.nextElementSibling); // footer
+
+        /* 요소를 생성 */
+        var section = document.createElement("section");
+
+        /* 요소를 main 요소의 자식으로 넣을거에요 */
+        main.appendChild(section);
+
+        /* 요소를 main 요소의 자식이지만 footer 요소 앞에 넣고싶어요 */
+        var footer = document.querySelector("main footer");
+        main.insertBefore(section, footer);
+
+        /* 요소를 main 요소의 자식에서 빼고싶어요 */
+        main.removeChild(section);
+
+        /* footer 요소 대신에 section 요소를 넣고싶어요 */
+        main.replaceChild(section, footer);
+
+    </script>
+</body>
+</html>
