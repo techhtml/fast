@@ -1,0 +1,32 @@
+/* 버튼 */
+.btn {
+    padding:5px 10px;
+    margin:0;
+    border:1px solid #555;
+    background:#efefef;
+}
+
+/* warning 버튼 - 배경이 붉은색, 폰트 색상이 흰색 */
+.btn-warning {
+    background:red;
+    color:white;
+}
+
+/*
+  <button class="btn btn-warning">경고버튼</button>
+*/
+
+.sp {
+    width:15px;
+    height:15px;
+    background:url(sprite.png) 0 0 no-repeat;
+}
+.sp-youtube {
+    background-position:0 0;
+}
+.sp-play {
+    background-position:-15px 0;
+}
+.sp-pause {
+    background-position:-30px 0;
+}

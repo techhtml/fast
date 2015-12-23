@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>스프라이트 이미지</title>
+    <style>
+        html, body {height:100%;}
+        .menu {position:relative;left:-300px;width:300px;height:100%;background:green;transition:1s all ease}
+        .on {left:0}
+    </style>
+</head>
+<body>
+<div class="menu"></div>
+<button type="button">메뉴</button>
+<script>
+    var menu = document.querySelector(".menu");
+    var btn = document.querySelector("button");
+    var activate = false;
+
+    btn.addEventListener("click", function(e) {
+        if(activate === false) {
+            menu.setAttribute("class", "menu on");
+            cactivate = true;
+        } else {
+            menu.setAttribute("class", "menu");
+            activate = false;
+        }
+    });
+
+
+
+    // menu라는 변수를 지정한다
+    // 변하는 수, 그릇
+    // 이미 지정된 키워드는 사용할 수 없어요.
+    // = (대입)
+    // === (같다)
+    var num = 1; // 숫자 number
+    // num - 1
+    var str = "choeun"; // 문자열 string
+    // str - "choeun"
+    var bol = true; // 논리값 boolean
+    // true ? false
+    var obj = {
+        name: "choeun"
+    }; // 객체 object
+    var run = function() {
+        console.log(choeun);
+    }; // 함수 function
+    var arr = []; // 배열 Array
+    var choeun; // 미지정됨 undefined
+    run();
+</script>
+</body>
+</html>
