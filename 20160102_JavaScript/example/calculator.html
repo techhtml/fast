@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>계산기</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <p id="res"></p>
+        <div class="main">
+            <div class="line">
+                <button id="init" type="button">AC</button>
+                <button id="switch" type="button">+/-</button>
+                <button id="garbage" type="button">%</button>
+            </div>
+            <div class="line">
+                <button class="pannel" type="button">7</button>
+                <button class="pannel" type="button">8</button>
+                <button class="pannel" type="button">9</button>
+            </div>
+            <div class="line">
+                <button class="pannel" type="button">4</button>
+                <button class="pannel" type="button">5</button>
+                <button class="pannel" type="button">6</button>
+            </div>
+            <div class="line">
+                <button class="pannel" type="button">1</button>
+                <button class="pannel" type="button">2</button>
+                <button class="pannel" type="button">3</button>
+            </div>
+            <div class="line">
+                <button class="pannel" type="button">0</button>
+                <button class="pannel" type="button">.</button>
+            </div>
+        </div>
+        <div class="side">
+            <button id="devide" type="button">/</button>
+            <button id="multiply" type="button">X</button>
+            <button id="minus" type="button">-</button>
+            <button id="plus" type="button">+</button>
+            <button id="result" type="button">=</button>
+        </div>
+    </div>
+    <script>
+        // 기능명세서
+        // 1. 숫자패널을 누르면, 숫자들이 P요소에 들어감
+        // 2. 나누기 곱셈 빼기 덧셈 나머지를 누를 경우에는, P요소의 값이 1번째 값이 됨
+        // 3. 다시 숫자패널을 누르면, 숫자들이 P요소에 들어감
+        // 4. =을 누르면 결과값이 P요소에 들어감
+        var pannels    = document.querySelectorAll(".pannel"),
+            res        = document.querySelector("#res"),
+            elDevide   = document.querySelector("#devide"),
+            elMultiply = document.querySelector("#multiply"),
+            elMinus    = document.querySelector("#minus"),
+            elPlus     = document.querySelector("#plus"),
+            elGarb     = document.querySelector("#garbage"),
+            elResult   = document.querySelector("#result"),
+            number1, number2, state;
+
+        for(var i = 0; i < pannels.length; i += 1) {
+            pannels[i].addEventListener("click", function() {
+                var number = this.innerText;
+                res.innerHTML += number;
+            })
+        }
+
+        var resultCalc = function() {
+            number2 = parseFloat(res.innerText, 10);
+            if(state === "/") {
+                console.log(number1 / number2);
+            } else if(state === "X") {
+                console.log(number1 * number2)
+            } else if(state === "-") {
+                console.log(number1 - number2)
+            } else if(state === "+") {
+                console.log(number1 + number2)
+            } else if(state === "%") {
+                console.log(number1 % number2)
+            }
+        };
+
+        var calc = function() {
+            number1 = parseFloat(res.innerText, 10);
+            state = this.innerText;
+            res.innerHTML = "";
+        };
+
+        elDevide.addEventListener("click", calc);
+        elMultiply.addEventListener("click", calc);
+        elMinus.addEventListener("click", calc);
+        elPlus.addEventListener("click", calc);
+        elGarb.addEventListener("click", calc);
+        elResult.addEventListener("click", resultCalc);
+    </script>
+</body>
+</html>

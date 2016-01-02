@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var VideoItem = function(options) {
+            // 1. 데이터를 받아온다.
+            this.url = options.url;
+            this.img = options.img;
+            this.time = options.time;
+            this.title = options.title;
+            this.write = options.write;
+            this.count = options.count;
+
+            // 2. 데이터를 해석한 뒤, 적절하게 처리한다
+            this.timeData = {};
+            this.getTime = function() {
+                this.timeData.min = parseInt(this.time / 60, 10);
+                this.timeData.sec = parseInt(this.time % 60, 10);
+                if(this.timeData.min >= 60) {
+                    this.timeData.hour = parseInt(this.timeData.min / 60, 10)
+                    this.timeData.min = parseInt(this.timeData.min % 60, 10)
+                }
+            };
+            this.getTime();
+            // 3. DOM을 그려준다.
+            // 3.1. React 같은.. 자바스크립트 VIEW 라이브러리를 쓴다
+            // 3.2. DOM을 일일히 그려준다.
+            // 3.3. innerHTML에 넣어준다.
+            var htmlString = "<li><a href=" + this.url + ">" +
+                    "<img src=" + this.img + " alt=''>" +
+                    "<dl>" +
+                    "<dt>" + this.title + "</dt>" +
+                    "<dd><strong>게시자</strong>" + this.write + "</dd>" +
+                    "<dd><strong>조회수</strong>" + this.count + "</dd>" +
+                    "</dl>" +
+                    "</a></li>";
+            // <li>
+            // <a href=''>
+            // <img src='' alt=''>
+            // <dl>
+            //   <dt></dt>
+            //   <dd><strong>게시자</strong></dd>
+            //   <dd><strong>조회수</strong></dd>
+            // </dl>
+            // </a>
+            document.body.innerHTML += htmlString;
+        };
+        var videoData = [{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        },{
+            url: "https://www.youtube.com/watch?v=QbmLx727aAI",
+            img: "https://i.ytimg.com/vi/9WoCR4B_qNo/default.jpg",
+            time: 3890,
+            title: "秦 基博 / アイ",
+            write: "OfficeAugusta ",
+            count: 13149865
+        }];
+        for(var i = 0; i < videoData.length; i += 1) {
+            new VideoItem(videoData[i]);
+        }
+    </script>
+</body>
+</html>

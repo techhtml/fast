@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>인풋 두개를 두고 더하는 스크립트</title>
+</head>
+<body>
+    <input id="number1" type="text" placeholder="숫자 1">
+    <input id="number2" type="text" placeholder="숫자 2">
+    <button id="btnPlus" type="button">더하기</button>
+    <script>
+        // DOM하고 스크립트 동시에 구현
+        // 1. DOM을 먼저 구현
+        // 2. 스크립트로 로직 구현
+        // SUM의 기능명세서
+
+        // 인풋 A, 인풋 B에서 숫자를 받는다.
+            // 숫자가 아닌 문자가 들어올 가능성도 있다.
+            // 음수가 들어올 수 있다
+        // 더하기 버튼을 누르면 더한다.
+        // 더한 값을 console에 찍는다.
+        var elNumber1 = document.querySelector("#number1"),
+            elNumber2 = document.querySelector("#number2"),
+            elBtnPlus = document.querySelector("#btnPlus");
+        elBtnPlus.addEventListener("click", function(e) {
+            var number1 = parseInt(elNumber1.value, 10),
+                number2 = parseInt(elNumber2.value, 10),
+                result  = number1 + number2;
+            console.log(result);
+        });
+    </script>
+</body>
+</html>
