@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>뮤직 플레이어</title>
+    <style>
+        #player {width:500px;}
+        #player img {width:100%}
+        #player .progress {width:100%;height:3px;background:#000}
+        #player .inner-progress {width:0;height:3px;background:greenyellow}
+    </style>
+</head>
+<body>
+    <div id="music_area"></div>
+    <div id="player">
+        <img src="" alt="">
+        <dl>
+            <dt class="music_title"></dt>
+            <dd class="music_artist"></dd>
+        </dl>
+        <div class="progress">
+            <div class="inner-progress"></div>
+        </div>
+        <button type="button" class="prev">이전노래</button>
+        <button type="button" class="play">재생</button>
+        <button type="button" class="next">다음노래</button>
+    </div>
+    <script src="player.js"></script>
+</body>
+</html>
