@@ -11,8 +11,8 @@
     </style>
 </head>
 <body>
-    <div id="music_area"></div>
     <div id="player">
+        <div class="music_area"></div>
         <img src="" alt="">
         <dl>
             <dt class="music_title"></dt>
@@ -25,6 +25,58 @@
         <button type="button" class="play">재생</button>
         <button type="button" class="next">다음노래</button>
     </div>
-    <script src="player.js"></script>
+    <div id="player2">
+        <div class="music_area"></div>
+        <img src="" alt="">
+        <dl>
+            <dt class="music_title"></dt>
+            <dd class="music_artist"></dd>
+        </dl>
+        <div class="progress">
+            <div class="inner-progress"></div>
+        </div>
+        <button type="button" class="prev">이전노래</button>
+        <button type="button" class="play">재생</button>
+        <button type="button" class="next">다음노래</button>
+    </div>
+    <div id="player3">
+        <div class="music_area"></div>
+        <img src="" alt="">
+        <dl>
+            <dt class="music_title"></dt>
+            <dd class="music_artist"></dd>
+        </dl>
+        <div class="progress">
+            <div class="inner-progress"></div>
+        </div>
+        <button type="button" class="prev">이전노래</button>
+        <button type="button" class="play">재생</button>
+        <button type="button" class="next">다음노래</button>
+    </div>
+    <script src="player.data.js"></script>
+    <script src="player.module.js"></script>
+    <script>
+        var musicPlayer = new Player(playList, {
+            wrapper : "#player",
+            audio   : ".music_area",
+            btnPlay : ".play",
+            btnPrev : ".prev",
+            btnNext : ".next"
+        });
+        var musicPlayer2 = new Player(playList2, {
+            wrapper : "#player2",
+            audio   : ".music_area",
+            btnPlay : ".play",
+            btnPrev : ".prev",
+            btnNext : ".next"
+        });
+        var musicPlayer3 = new Player(playList3, {
+            wrapper : "#player3",
+            audio   : ".music_area",
+            btnPlay : ".play",
+            btnPrev : ".prev",
+            btnNext : ".next"
+        });
+    </script>
 </body>
 </html>
