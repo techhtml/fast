@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        /**
+         * 나타낼 좌표 (위도, 경도)
+         */
+        var hoju = {lat: -34.397, lng: 150.644};
+        var indianapolis = {lat: 39.79, lng: -86.14};
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById("map"), {
+                center: indianapolis,
+                scrollwheel: false,
+                zoom: 8
+            });
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: hoju
+            });
+
+            var marker2 = new google.maps.Marker({
+                map: map,
+                position: indianapolis
+            });
+
+            map.setCenter(marker.getPosition());
+        }
+
+    </script>
+    <script>
+        /**
+        function initMap() {
+            var chicago = {lat: -34.397, lng: 150.644};
+            var indianapolis = {lat: 39.79, lng: -86.14};
+
+            // Create a map object and specify the DOM element for display.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: indianapolis,
+                scrollwheel: false,
+                zoom: 4
+            });
+
+            // Create a marker and set its position.
+            var marker = new google.maps.Marker({
+                map: map,
+                position: chicago,
+                title: 'Hello World!'
+            });
+
+            var marker2 = new google.maps.Marker({
+                map: map,
+                position: indianapolis,
+                title: 'Hello World!'
+            });
+
+            map.setCenter(marker.getPosition());
+        }
+        */
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABF7CWQINNnX5IMOhSQFCPSuyu3-ONt_A&callback=initMap" async defer></script>
+</body>
+</html>
