@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <style>
+        .carousel {
+            position:relative;
+            width: 500px;
+        }
+        .carousel img {
+            vertical-align: top;
+        }
+        .btn_prev {
+            display:block;
+            position:absolute;
+            left:0;
+            top:0;
+            bottom:0;
+            width:20%;
+        }
+        .btn_next {
+            display:block;
+            position:absolute;
+            right:0;
+            top:0;
+            bottom:0;
+            width:20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-mask">
+            <div class="carousel-wrap">
+                <div class="carousel-panel"></div>
+                <div class="carousel-panel"></div>
+                <div class="carousel-panel"></div>
+            </div>
+        </div>
+        <a href="#" class="btn_next"></a>
+        <a href="#" class="btn_prev"></a>
+    </div>
+    <!-- 자바스크립트 라이브러리 vs 프레임워크 -->
+
+    <!-- 라이브러리 : (도서관, 책의 집합, 리소스 모음)
+         개발을 할 때 특정한 무언가를 편리하게 해주는 것
+         코드 상에 제약이 없어야 함-->
+
+    <!-- 프레임워크 : (frame + work, 틀에서 일하기)
+         개발을 할 때 프레임워크에서 제공하는 것만 사용해야 함.
+         컨벤션도 프레임워크에서 제공하는 대로 해야함 -->
+
+    <!-- jQuery 1.x
+         IE6까지 지원함 : PC를 지원해야하는 경우
+         일부기능들은 IE 6~8에서 안되는 경우도 있음
+         약간 느림-->
+
+    <!-- jQuery 2.x
+        IE9부터 지원 : 모바일만 지원해도 되는 경우
+        대부분의 기능이 빨라요 (1.x대와 비교하면)-->
+
+    <!--
+        라이브러리를 사용할 때,
+        jquery.js (압축 안한거)
+        jquery.min.js (압축 한거)
+    -->
+    <script src="jquery.min.js"></script>
+    <script src="jquery.carousel.js"></script>
+</body>
+</html>
