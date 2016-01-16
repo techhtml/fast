@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+</head>
+<body>
+    <h1>오늘 할 일</h1>
+    <ol>
+        <li class="do">jQuery가 무엇이며 어떻게 쓰는 건지</li>
+        <li class="hello">jQuery Plugin 활용법</li>
+        <li>용어 정리 (Pages 정리)</li>
+        <li class="world">실습 (jQuery로 Youtube Player 구현하기)</li>
+    </ol>
+    <button type="button">CLICK</button>
+    <button type="button">CLICK</button>
+    <button type="button">CLICK</button>
+    <button type="button">CLICK</button>
+    <button type="button">CLICK</button>
+    <button type="button">CLICK</button>
+
+    <!--
+        jQuery란 무엇이냐?
+        IE를 대응해야하는데, Native Script(vanilla JS)
+        IE 8 이하 = JScript (IE가 이김, IE만의 독자적인 JS)
+        표준모델  : btn.addEventListener("click", function() { });
+        비표준모델: btn.attachEvent("onclick", function() { });
+
+        Element.prototype.addEvent = function() {
+            if(this.attachEvent) {
+                this.attachEvent();
+            } else {
+                this.addEventListener();
+            }
+        }
+
+        호환성을 어떻게 할 것인가.
+        2006년도 (IE, Navigator, FF)
+        IE의 점유율 약 90%
+        jQuery (IE와 Navigator 간의 서로 다른 호환성을 메꾸기 위해)
+
+        여러분들이 굳이 해야하는, 고민해야하는 호환성 문제를 해결해주는 라이브러리
+
+        버전 2개
+        - 1.x대 (최신: 1.12.0)
+        - 2.x대 (최신: 2.2.0)
+        제일 앞에 있는 숫자 : 메이저 버전업, 대규모 업데이트
+        중간 숫자   : 마이너한 기능 추가
+        마지막 숫자 : 버그 수정
+
+        - 1.x대 (IE 6 ~ 8까지 대응하는 구버전 코드)
+        - 2.x대 (IE9부터 지원하며, 최신 기술 다 녹임)
+    -->
+    <script src="jquery.min.js"></script>
+    <script>
+        // 1. 모든 jQuery는 $에서 시작한다.
+
+        $(/** Selector */);
+
+        // 2. 페이지 내, 모든 button에 이벤트를 주고싶다.
+        // $("button")
+
+        // 3. 이벤트를 준다
+        $("button").on("click", function() {
+            console.log("buttons");
+        });
+
+        // 4. 마우스를 눌렀을 때, 뗐을 때 서로 다른 이벤트
+        $("li").on("mousedown", function() {
+            console.log("mousedown")
+        }).on("mouseup", function() {
+            console.log("mouseup");
+        });
+
+        // 5. 윈도우가 다 로드 되었을 때 뭔가를 했으면 좋겠어..
+        // 이미 지정된 객체를 jQuery 객체로 사용하고 싶을 때
+        $(window).on("load", function() {
+            // 이미지 용량이 클 때
+            // 내가 사용하는 리소스 (웹폰트)의 용량이 커서 다운속도가 오래걸릴 때
+            // alert("로딩이 끝났어요");
+        });
+
+        // 6. 속성을 가져올 때, 설정할 때
+        // getAttribute, setAttribute
+
+        // console.log($("li").attr("class"));
+        $("li:first-child").attr("class", "fast");
+
+        // 7. 이벤트를 지정할 때
+        $("li").on("click", function() {
+
+        });
+
+        // 8. CSS를 지정할 때
+        $("li").css({
+            "color":"#fff",
+            "background":"#2ac1bc"
+        });
+
+        // API문서 살피기 + 애니메이션 넣기
+        $("button").on("click", function() {
+            $("li").animate({
+                "height": "toggle"
+            }, {
+                "duration": 1000,
+                "step": function() {
+                    $("li").css({"font-size": "+=0.1"});
+                },
+                "start": function() {
+                    $("li").css({"background": "green"});
+                },
+                "complete": function() {
+                    $("li").css({"background": "red"});
+                },
+                "done": function() {
+                    $("li").css({"color": "blue"});
+                }
+            });
+        });
+
+        // jQuery Plugin
+        // Image Slider = (carousel)
+        // (손가락으로.. 일정 지점 이상 가면.. 뭔가 되는거)
+        // owl.carousel
+        // flicking
+        // lightbox (CDN, 원격 다운로드 X, 코드를 다운받아서 사용할 것)
+
+        // JINDO Component
+        // jQuery UI
+        // Bootstrap JavaScript
+
+        // https://plugins.jquery.com/
+
+        /*
+        var btns = document.querySelectorAll("button");
+        for(var i = 0; i < btns.length; i += 1) {
+            btns[i].addEventListener("click", function() {
+                // Do Something
+            })
+        }
+        */
+
+        /**
+         * 용어 (공통)
+         * 객체 {}
+         * key: value (키:밸류, 키:값)
+         */
+        var choeun = {
+            name: "조은"
+        };
+        // [] 대괄호
+        // {} 중괄호
+        // () 괄호
+
+        /**
+         * 함수 (function)
+         * var x = function() { }
+         */
+        var move = function(left, top) {
+            left += 10;
+            top -= 10;
+        };
+        // 이렇게 함수를 정하는 함수 표현식
+        // function (함수 선언 키워드)
+        // (매개변수)  괄호 안에 들어가는 친구들 매개변수, 파라미터
+        // { } 중괄호 안은 함수 BODY
+
+        move(100, 2000);
+        // 함수 호출
+        // left의 값 = 110;
+        // top의 값 = 1990;
+
+        // scope
+        // 변수의 유효범위
+        // 함수 BODY 단위로 끊김
+
+        // console.log(left);
+        // ???
+        // left is not defined
+
+        var animation = function(left) {
+            var right = 50;
+            left += 10;
+
+            var animated = function(right) {
+                left += 20;
+                right += 100;
+                console.log(right);
+                // right === 200
+            };
+
+            console.log(left);
+            // left === 310
+            console.log(right);
+            // 50
+            animated(100);
+            console.log(left);
+            // left === 330
+            console.log(right);
+            // right === 50
+        };
+
+        animation(300);
+        // 최초의 left : 300
+        // 최초의 right : 50
+        // left : 310
+        // animated;
+        // console.log (left = 310)
+        // console.log (right = 50)
+        // animated(100);
+        // animated 내부 right : 100
+        // animated 내부 left : 310
+        // animated left += 20
+        // left = 330
+        // animated 내부 right += 100
+        // animated 내부 right = 200
+        // animated 외부 right = 50
+        // right = 50
+        // left = 330
+
+        var sum = function(a,b) {
+            return a + b;
+        };
+
+        // 1 + 10;
+        sum(1, 10); // 11
+
+        // 1 + 10 + 100
+
+        sum(sum(1, 10), 100);
+
+        // 1 + 10 + 100 + 1000
+
+        sum(sum(sum(1, 10), 100), 1000);
+
+        var sumAll = function() {
+            // 내가 전달한 파라미터의 집합 : arguments
+            var result = 0;
+            for(var i = 0; i < arguments.length; i += 1) {
+                result += arguments[i];
+            }
+            return result;
+        };
+        // https://brunch.co.kr/@ibare/1
+
+        sumAll(10);
+
+        document.addEventListener("click", function(ev) {
+            // 브라우저에서 자동으로 생성해주는 이벤트 객체,
+            // 이벤트의 첫번째 파라미터로 들어간다.
+        });
+
+
+        // 이벤트 (DOM)
+        // ~할 때
+
+        // 페이지 로딩이 끝났을 때
+        window.addEventListener("load", function(event) {
+            // event 관련 객체
+            console.log(event);
+        });
+
+        // 버튼을 클릭할 때
+        /*
+        button.addEventListener("click", function(event) {
+            // event 관련 객체
+            console.log(event);
+        });
+
+        window.addEventListener("keydown", function(event) {
+            if(event.keyCode === 27) {
+                console.log("ESC");
+            }
+        });
+        */
+
+        $(window).on("keydown", function(event) {
+            console.log(this, event);
+            // event.originalEvent
+        });
+
+        // this
+        // 말 그대로 나 자신
+        // 이벤트가 동작하는 주체, 함수가 동작하는 주체
+
+        var move = function() {
+            console.log(this);
+        };
+        // window.move = function() { };
+
+        move();
+        // move?
+        // this?
+        // window
+
+        btn.addEventListener("click", function() {
+            console.log(this);
+        });
+
+        // btn
+
+        var obj = {};
+        obj.move = function() { };
+
+        obj.move();
+        // obj
+
+        btn.addEventListener("click", obj.move);
+        // btn
+
+        var obj = {};
+        obj.move = function() {
+            // this (obj);
+            var that = this;
+            // that (obj)
+            // this (obj);
+            btn.addEventListener("click", function() {
+                // this? (btn)
+                // that? (obj)
+
+                that.moveLeft();
+                // that = obj
+                // this = obj
+            });
+            // btn
+
+        };
+
+        obj.moveLeft = function() {
+            // this?
+            // obj
+
+            // button this
+            // btn
+
+            // 난 여기서 this를 obj로 쓰고싶다.
+        };
+        obj.moveLeft();
+        // this?
+        // obj
+
+        // 추가적으로 궁금한 거 (페이스북)
+
+    </script>
+</body>
+</html>

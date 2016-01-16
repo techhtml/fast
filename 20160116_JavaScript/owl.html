@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>OWL</title>
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+</head>
+<body>
+    <div id="owl-example" class="owl-carousel">
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="owl-carousel/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#owl-example").owlCarousel({
+                navigation : true,
+                pagination : false,
+                slideSpeed : 1000,
+                paginationSpeed : 400,
+                singleItem:true
+            });
+        });
+    </script>
+
+</body>
+</html>
