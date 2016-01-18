@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 2016 01 18</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!--
+      --- 자바스크립트 코딩 가이드 (스타일 가이드)
+      --- 대표적 스타일 가이드 :
+        1. 구글 자바스크립트 스타일 가이드
+        https://google.github.io/styleguide/javascriptguide.xml
+        (goog라는 라이브러리를 사용하고 있다)
+
+        2. Airbnb 자바스크립트 스타일 가이드
+        https://github.com/tipjs/javascript-style-guide
+
+      --- 1. 내가 아닌 누군가가 이 코드를 작성했을 때 문제 없이 돌아 갈 수 있도록
+      --- 2. 자바스크립트의 좋은 문법만 사용하기 위해서
+      --- 3. 자바스크립트의 성능을 좋게 하기 위해서
+    -->
+    <script src="fast.m.common.js"></script>
+    <script>
+        // var라는 키워드 (변수를 지정)
+        // Private, Public이 없어요.
+        // JS는 기본적으로 Public
+
+        // Private = 외부에서 접근 불가능한 객체 자신만의 비밀 속성
+        // 만약 Private라면, 아래와 같은 name 참조가 불가능함
+        // myNote.name === "노트"
+        // myNote.getName(); // getter
+        // myNote.setName(); // setter
+
+        // Public = 외부에서 접근 가능한 객체의 속성
+        // myNote.name === "노트"
+        // 우리가 작성하는 모든 JS는 Public 기반
+
+        var Note = function() {
+            this.name = "노트";
+        };
+
+        Note.prototype = {};
+
+        var myNote = new Note();
+        // 생성자 함수를 통해 만든 객체를 Instance(인스턴스)라 부름
+
+        // Note가 두개
+        // 문방구에서 파는 노트, 마트에서 파는 노트
+        // 구글 드라이브에서 사용하는 노트, 구글 앱에서 사용하는 노트
+
+        var driveNote = function() { };
+        var appInfo = {};
+        var appNote = function() { };
+        var appSearch = function() { };
+
+        // app에서 공통으로 쓰이는 것
+        // app ID
+        // app 다운로드 권한
+        // app 승인 여부
+        // app Version
+
+        // namespace 패턴
+        // 공통으로 쓰이는 이름들을 객체로 정리하는 것
+
+        // 네이버
+        // 모바일
+        var nhn = nhn || {};
+        // 만약 || 앞에 있는 게, 기존에 존재 했다면 그걸 쓰고,
+        // 아니라면 그 뒤에 있는 걸 사용해라
+        nhn.m = nhn.m || {};
+        nhn.pc = nhn.pc || {};
+
+        var nts = nts || {};
+        nts.m = nts.m || {};
+
+        // 파일명
+        // 공통 : fast.m.common.js
+        // 캐러셀 : fast.m.Carousel.js
+    </script>
+    <script>
+
+        var a = function(spec) {
+            var that = {};
+            that.getName = function() {
+                return spec.name;
+            };
+            return that;
+        };
+
+        var obj = a({"name": "choeun"});
+        obj.getName(); // choeun
+
+        var ChoEun = {
+            name: "조은",
+            age: 24,
+            job: "programmer"
+        };
+
+        for(var key in ChoEun) {
+            console.log(ChoEun[key]);
+        }
+    </script>
+    <script src="fast.m.youtube.js"></script>
+    <script src="fast.m.youtube.Controller.js"></script>
+    <script src="fast.m.youtube.Model.js"></script>
+    <script src="fast.m.youtube.Main.js"></script>
+    <script src="fast.m.youtube.Page.js"></script>
+    <script src="fast.m.youtube.Screen.js"></script>
+    <script src="fast.m.youtube.Player.js"></script>
+    <script src="fast.m.youtube.List.js"></script>
+    <script src="fast.m.youtube.Info.js"></script>
+    <script src="fast.m.youtube.Comment.js"></script>
+    <script src="fast.m.youtube.Social.js"></script>
+
+    <!-- http://localhost:63342/fast/20160118_JavaScript/index.html -->
+
+    <script src="youtube.common.js"></script>
+    <script src="youtube.Controller.js"></script>
+
+    <script src="woowa.corp.js"></script>
+</body>
+</html>
