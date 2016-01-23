@@ -3,12 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello world</title>
+    <style>
+        body {margin:0}
+        ul, li {padding:0;margin:0;list-style:none}
+
+        header {position:fixed;top:0;right:0;left:0;padding:15px 30px;border-bottom:1px solid #aaa;background:#efefef;overflow:hidden}
+        header .inp_search {float:left;width:270px;border:1px solid #aaa;color:#666;font-size:14px;line-height:22px;padding:3px;}
+        header .btn_search {float:left;width:48px;height:30px;padding:0;margin:0 0 0 10px;font-size:14px;line-height:22px;border:1px solid #aaa;color:#666;background:#fff;text-align:center;cursor:pointer}
+
+        .search_section {margin-top:61px;background:#efefef}
+        .search_section h1 {margin:0;padding:1em}
+        .search_list {}
+        .search_list li {overflow:hidden;font-size:18px}
+        .search_list li + li {margin-top:15px}
+        .search_list li a {text-decoration:none;overflow:hidden;}
+        .search_list li img {float:left;width:120px;height:90px;border:0}
+        .search_list li dl {overflow:hidden;color:deepskyblue;padding-left:15px;}
+        .search_list li dt {font-size:14px}
+        .search_list li dd {margin-left:0}
+
+        .player {float:left;width:854px;height:480px}
+        .player-wide {width:1270px;height:684px}
+        .recommend {overflow:hidden;height:1080px;background:#999}
+    </style>
 </head>
 <body>
-    <form name="search" id="search_area">
-        <input class="inp_search" type="search" placeholder="동영상검색">
-        <input class="btn_search" type="button" value="검색">
-    </form>
+    <header>
+        <form name="search" id="search_area">
+            <input class="inp_search" type="search" placeholder="동영상검색">
+            <input class="btn_search" type="button" value="검색">
+        </form>
+    </header>
+    <section class="search_section" style="display:none">
+        <h1>검색결과</h1>
+    </section>
+    <section class="video_viewer" style="display:none">
+        <div class="player"></div>
+        <div class="recommend"></div>
+    </section>
     <script>
         /**
          * 검색
